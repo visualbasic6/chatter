@@ -10,6 +10,7 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. i
 **compile from source**<br/>
 \<laughs in quadruple og\>
 
+**roadmap, misc. notes**<br/>
 1. monitoring more public facing areas (google, google news, fb, etc.)
 2. monitoring topic-centric private areas (telegram, discord, slack, fb groups, etc.)
 3. automated [this](https://pastebin.com/raw/irj4Fyd5) with conversational ai
