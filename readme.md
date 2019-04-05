@@ -1,5 +1,5 @@
 **description**<br/>
-chatter is a proof of concept osint monitoring and collaborative intelligence tool for windows (server, ideally) that monitors twitter hashtags, reddit titles and 4chan post content for specific keywords and phrases. it feeds discovered content to a telegram group in near real-time. this is an [early release with limited features](https://github.com/visualbasic6/subdomain-bruteforce). i'm easily distracted and good at those.
+chatter is a proof of concept osint monitoring and collaborative intelligence tool for windows (server, ideally) that monitors twitter hashtags, reddit titles and 4chan post content for specific keywords and phrases. it feeds discovered content to a private telegram group in near real-time. this is an [early release with limited features](https://github.com/visualbasic6/subdomain-bruteforce). i'm easily distracted and good at those.
 
 **ss**<br/>
 ![ss](https://github.com/visualbasic6/chatter/raw/master/ss.gif)
