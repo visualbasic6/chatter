@@ -1,0 +1,8 @@
+reddit:cryptocurrency:n/a:5
+reddit:bitcoin:n/a:5
+reddit:btc:n/a:5
+reddit:ethtrader:n/a:5
+reddit:ethereum:n/a:5
+reddit:bitcoinmarkets:n/a:5
+4chan:biz:n/a:5
+twitter:hashtags:n/a:5
