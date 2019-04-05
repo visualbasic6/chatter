@@ -1,5 +1,5 @@
 **description**<br/>
-chatter is a proof of concept osint monitoring tool. it presently monitors twitter hashtags, reddit titles and 4chan post content for specific keywords and phrases. it then drops links in a telegram group in near real-time.
+chatter is a proof of concept osint monitoring and collaborative intelligence tool for windows (server, ideally) that monitors twitter hashtags, reddit titles and 4chan post content for specific keywords and phrases. it feeds discovered content to a telegram group in near real-time. this is a buggy early release.
 
 **ss**<br/>
 ![ss](https://github.com/visualbasic6/chatter/raw/master/ss.gif)
