@@ -13,7 +13,7 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. i
 **roadmap, misc. notes**<br/>
 1. monitoring more public facing areas (google, google news, fb, youtube, etc.)
 2. monitoring topic-centric private areas (telegram, discord, slack, fb groups, etc.)
-3. automated [this](https://pastebin.com/raw/irj4Fyd5) with conversational ai
+3. automated [this](https://pastebin.com/raw/irj4Fyd5) with conversational ai (if i want to show off for some reason)
 4. rate-limit circumvention via proxies
 5. web facing aggregator
 
