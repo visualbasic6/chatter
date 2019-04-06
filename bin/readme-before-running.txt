@@ -1,5 +1,5 @@
 \config\apikey.txt is where your telegram bot's api key is placed
-\config\chatid.txt is the name of the telegram channel (don't include @ at the beginnin)
+\config\chatid.txt is the name of the telegram channel (don't include @ at the beginning)
 
 the other files in \config\ are self-explanatory and already structured for your additions/removals of reddit and 4chan areas and keywords.
 
