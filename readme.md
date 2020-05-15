@@ -7,11 +7,12 @@ chatter is a proof of concept osint monitoring telegram bot for windows (server,
 **how to run chatter**<br/>
 download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. it's in \bin
 
-\config\apikey.txt place your telegram bot api key here
+place your telegram bot api key here: \config\apikey.txt
 
-\config\chatid.txt place the numerical id of your telegram group here. this can be identified with https://core.telegram.org/bots/api#getupdates after you have added your bot into your group.
+place the numerical id of your telegram group here: \config\chatid.txt
+it can be identified with https://core.telegram.org/bots/api#getupdates after you have added your bot into your group.
 
-the other files in \config\ are self-explanatory and already structured for your additions/removals of reddit and 4chan areas and keywords. keywords are treated as hashtags on twitter, submission titles on reddit and post content on 4chan. you may place phrases in quotes in addition to keywords.
+the other files in \config\ are self-explanatory and structured with examples. keywords are treated as hashtags on twitter, submission titles on reddit and post content on 4chan. you may place phrases in quotes in addition to keywords.
 
 the format of targets.txt is
 service:area:apicreds(unnecessary):minutesbetweencrawl
