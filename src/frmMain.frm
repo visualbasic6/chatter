@@ -47,16 +47,17 @@ Begin VB.Form frmMain
       _ExtentY        =   9340
       _Version        =   393216
       Style           =   1
+      Tab             =   1
       TabHeight       =   520
       TabCaption(0)   =   "status"
       TabPicture(0)   =   "frmMain.frx":048A
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "LV"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "config"
       TabPicture(1)   =   "frmMain.frx":04A6
-      Tab(1).ControlEnabled=   0   'False
+      Tab(1).ControlEnabled=   -1  'True
       Tab(1).Control(0)=   "lblText(0)"
       Tab(1).Control(0).Enabled=   0   'False
       Tab(1).Control(1)=   "lblText(1)"
@@ -122,7 +123,7 @@ Begin VB.Form frmMain
       Tab(2).ControlCount=   14
       Begin VB.TextBox txtRefresh 
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   31
          Text            =   "60"
          Top             =   2450
@@ -140,7 +141,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   23
          ToolTipText     =   "do this prior to launching a new campaign to prevent flooding. reload chatter when complete."
          Top             =   2800
@@ -148,14 +149,14 @@ Begin VB.Form frmMain
       End
       Begin VB.TextBox txtChatID 
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   22
          Top             =   1860
          Width           =   9495
       End
       Begin VB.TextBox txtAPIKey 
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   20
          Top             =   1260
          Width           =   9495
@@ -171,14 +172,14 @@ Begin VB.Form frmMain
       End
       Begin VB.ListBox lstKeywords 
          Height          =   1740
-         Left            =   -70080
+         Left            =   4920
          TabIndex        =   10
          Top             =   3360
          Width           =   4695
       End
       Begin VB.ListBox lstTargets 
          Height          =   1740
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   7
          Top             =   3360
          Width           =   4695
@@ -186,7 +187,7 @@ Begin VB.Form frmMain
       Begin VB.TextBox txtSockets 
          Enabled         =   0   'False
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   4
          Text            =   "10"
          Top             =   660
@@ -194,7 +195,7 @@ Begin VB.Form frmMain
       End
       Begin MSComctlLib.ListView LV 
          Height          =   4695
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   2
          Top             =   480
          Width           =   9495
@@ -222,7 +223,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   14
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   30
          Top             =   2200
          Width           =   4095
@@ -318,7 +319,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   10
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   21
          Top             =   1620
          Width           =   1815
@@ -336,7 +337,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   9
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   19
          Top             =   1020
          Width           =   1815
@@ -450,7 +451,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   4
-         Left            =   -70080
+         Left            =   4920
          TabIndex        =   9
          Top             =   3120
          Width           =   1815
@@ -460,7 +461,7 @@ Begin VB.Form frmMain
          Caption         =   "?"
          Height          =   255
          Index           =   3
-         Left            =   -70440
+         Left            =   4560
          TabIndex        =   8
          Top             =   2520
          Width           =   255
@@ -470,7 +471,7 @@ Begin VB.Form frmMain
          Caption         =   "?"
          Height          =   255
          Index           =   2
-         Left            =   -65640
+         Left            =   9360
          TabIndex        =   6
          Top             =   180
          Width           =   255
@@ -488,7 +489,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   1
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   5
          Top             =   3120
          Width           =   9135
@@ -506,7 +507,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   0
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   3
          Top             =   420
          Width           =   735
@@ -601,30 +602,30 @@ Private Sub Form_Load()
     iSockets = lstTargets.ListCount
     txtSockets.Text = iSockets
 
-    Dim i As Integer
-    For i = 1 To iSockets
+    Dim I As Integer
+    For I = 1 To iSockets
         Call listScroll(lstTargets)
-        sService(i) = Split(lstTargets.Text, ":")(0)
-        sArea(i) = Split(lstTargets.Text, ":")(1)
-        sAPIKey(i) = Split(lstTargets.Text, ":")(2)
-        iPause(i) = Split(lstTargets.Text, ":")(3)
-        Load wSocket(i)
-        Load tmrPoll(i)
-        LV.ListItems.Add(, , "") = i
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sService(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sArea(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sAPIKey(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , iPause(i)
+        sService(I) = Split(lstTargets.Text, ":")(0)
+        sArea(I) = Split(lstTargets.Text, ":")(1)
+        sAPIKey(I) = Split(lstTargets.Text, ":")(2)
+        iPause(I) = Split(lstTargets.Text, ":")(3)
+        Load wSocket(I)
+        Load tmrPoll(I)
+        LV.ListItems.Add(, , "") = I
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sService(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sArea(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sAPIKey(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , iPause(I)
         LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , "idle"
     Next
 
-    For i = 1 To lstKeywords.ListCount
+    For I = 1 To lstKeywords.ListCount
         Call listScroll(lstKeywords)
-        sKeywords(i) = lstKeywords.Text
+        sKeywords(I) = lstKeywords.Text
     Next
 
-    For i = 1 To 500
-        Load wSend(i)
+    For I = 1 To 500
+        Load wSend(I)
     Next
 
     lblSockets.Caption = iSockets
@@ -641,9 +642,9 @@ Private Sub start_Click()
     txtChatID.Enabled = False
     txtRefresh.Enabled = False
 
-    Dim i As Integer
-    For i = 1 To iSockets
-        tmrPoll(i).Enabled = True
+    Dim I As Integer
+    For I = 1 To iSockets
+        tmrPoll(I).Enabled = True
     Next
 
     tmrRefreshSockets.Enabled = True
@@ -654,7 +655,7 @@ End Sub
 
 Private Sub tmrPoll_Timer(Index As Integer)
 
-    Dim i As Integer
+    Dim I As Integer
 
     If tmrPoll(Index).Interval = 1 Then
         LV.ListItems(Index).SubItems(5) = "searching " & sArea(Index) & " on " & sService(Index)
@@ -756,13 +757,19 @@ Private Sub tmrPoll_Timer(Index As Integer)
   
 End Sub
 
+Private Sub wSend_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorText As String)
+Dim sResponseBody As String
+sResponseBody = wSend(Index).Response.Body
+Debug.Print sResponseBody
+End Sub
+
 Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorText As String)
-    
+
     On Error Resume Next
 
     lblCrawlsAttempted.Caption = lblCrawlsAttempted.Caption + 1
 
-    Dim sResponseBody As String, i As Integer, X As String, Y As String, sMessage As String, fileName As String, _
+    Dim sResponseBody As String, I As Integer, X As String, Y As String, sMessage As String, fileName As String, _
     regEx As RegExp, myMatches As MatchCollection, myMatch As Match, iRNG As Integer
 
     sResponseBody = wSocket(Index).Response.Body
@@ -774,7 +781,7 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
         sResponseBody = Replace(sResponseBody, "&gt;", "")
         sResponseBody = Replace(sResponseBody, "<span class=""quote""", "")
         sResponseBody = Replace(sResponseBody, "<br>", " ")
-        For i = 1 To 1000
+        For I = 1 To 1000
             If InStr(sResponseBody, "<span class=""postnum desktop"">") Then
                 X = midParse(sResponseBody, "<span class=""postnum desktop"">", "</blockquote>")
                 If Len(X) > 1 Then
@@ -791,19 +798,19 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
                             LV.ListItems(Index).SubItems(5) = "discovered +1 ''" & sKeywords(iCurrentKeyword(Index)) & _
                             "'' in " & sArea(Index)
                             sMessage = midParse(X, "<a href=""//", """") & " / " & Split(X, """>")(2)
-                            sMessage = "''" & sKeywords(iCurrentKeyword(Index)) & "'' mentioned @ https://" & _
+                            sMessage = sKeywords(iCurrentKeyword(Index)) & "%0D%0A%0D%0A" & "https://" & _
                             midParse(X, "<a href=""//", """")
-                            txtLog.Text = txtLog.Text & sMessage & vbNewLine
+                            txtLog.Text = txtLog.Text & Replace(sMessage, "%0D%0A%0D%0A", " ") & vbNewLine
                             iRNG = RandomNum(1, 500)
                             wSend(iRNG).Disconnect
                             If chkPopulate = 0 Then
-                                wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?chat_id=@" & txtChatID.Text & "&text=" & sMessage
+                                wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?parse_mode=html&chat_id=" & txtChatID.Text & "&text=%F0%9F%91%81%EF%B8%8F <b>chatter</b> found " & sMessage
                                 wSend(iRNG).Get
                             End If
                         End If
                     End If
                 Else
-                    i = 1000
+                    I = 1000
                     Exit Sub
                 End If
                 sResponseBody = Replace(sResponseBody, "<span class=""postnum desktop"">" & X & "</blockquote>", vbNull)
@@ -821,7 +828,7 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
         Set myMatches = regEx.Execute(X)
         For Each myMatch In myMatches
             Y = myMatch.Value
-            sMessage = "''" & sKeywords(iCurrentKeyword(Index)) & "''" & " mentioned @ https://reddit.com/r/" & _
+            sMessage = sKeywords(iCurrentKeyword(Index)) & "%0D%0A%0D%0A" & "https://reddit.com/r/" & _
             midParse(Y, "https%3a//www.reddit.com/r/", "%")
             fileName = midParse(Y, "comments/", "/")
             If FileExists(App.Path & "\db\reddit\" & fileName & ".txt") Then
@@ -833,10 +840,10 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
                 Call SaveText("", App.Path & "\db\reddit\" & fileName & ".txt")
                 lblMatchesDiscovered.Caption = lblMatchesDiscovered.Caption + 1
                 LV.ListItems(Index).SubItems(5) = "discovered +1 ''" & sKeywords(iCurrentKeyword(Index)) & "'' in " & sArea(Index)
-                txtLog.Text = txtLog.Text & sMessage & vbNewLine
+                txtLog.Text = txtLog.Text & Replace(sMessage, "%0D%0A%0D%0A", " ") & vbNewLine
                 iRNG = RandomNum(1, 500)
                 If chkPopulate = 0 Then
-                    wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?chat_id=@" & txtChatID.Text & "&text=" & sMessage
+                    wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?parse_mode=html&chat_id=" & txtChatID.Text & "&text=%F0%9F%91%81%EF%B8%8F <b>chatter</b> found " & sMessage
                     wSend(iRNG).Get
                 End If
             End If
@@ -853,8 +860,8 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
         Set myMatches = regEx.Execute(X)
         For Each myMatch In myMatches
             Y = myMatch.Value
-            sMessage = "''" & sKeywords(iCurrentKeyword(Index)) & "''" & " mentioned @ https://twitter.com" & _
-            midParse(Y, "data-permalink-path=""", """")
+            sMessage = sKeywords(iCurrentKeyword(Index)) & "%0D%0A%0D%0A" & _
+            "https://twitter.com" & midParse(Y, "data-permalink-path=""", """")
             fileName = midParse(Y, "/status/", """")
             If FileExists(App.Path & "\db\twitter\" & fileName & ".txt") Then
                 LV.ListItems(Index).SubItems(5) = "ignoring duplicate"
@@ -865,10 +872,10 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
                 Call SaveText("", App.Path & "\db\twitter\" & fileName & ".txt")
                 lblMatchesDiscovered.Caption = lblMatchesDiscovered.Caption + 1
                 LV.ListItems(Index).SubItems(5) = "discovered +1 ''" & sKeywords(iCurrentKeyword(Index)) & "'' in " & sArea(Index)
-                txtLog.Text = txtLog.Text & sMessage & vbNewLine
+                txtLog.Text = txtLog.Text & Replace(sMessage, "%0D%0A%0D%0A", " ") & vbNewLine
                 iRNG = RandomNum(1, 500)
                 If chkPopulate = 0 Then
-                    wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?chat_id=@" & txtChatID.Text & "&text=" & sMessage
+                    wSend(iRNG).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?parse_mode=html&chat_id=" & txtChatID.Text & "&text=%F0%9F%91%81%EF%B8%8F <b>chatter</b> found " & sMessage
                     wSend(iRNG).Get
                 End If
             End If
@@ -885,21 +892,21 @@ Private Sub tmrRefreshSockets_Timer()
 
     On Error Resume Next
 
-    Dim i As Integer
+    Dim I As Integer
 
     iRefreshSockets = iRefreshSockets + 1
 
     If iRefreshSockets >= txtRefresh.Text + 1 Then
         iRefreshSockets = 0
-        For i = 1 To iSockets
-            wSocket(i).Disconnect
-            tmrPoll(i).Enabled = False
-            tmrPoll(i).Interval = 1
-            tmrPoll(i).Enabled = True
+        For I = 1 To iSockets
+            wSocket(I).Disconnect
+            tmrPoll(I).Enabled = False
+            tmrPoll(I).Interval = 1
+            tmrPoll(I).Enabled = True
             lblSocketsRefreshed.Caption = lblSocketsRefreshed.Caption + 1
         Next
-        For i = 1 To 500
-            wSend(i).Disconnect
+        For I = 1 To 500
+            wSend(I).Disconnect
         Next
     End If
 
@@ -910,14 +917,14 @@ Public Function ApiSpecialFolder(ByVal CSIDL As Long) As String
     Dim s As String
     Dim Result As Long
     Dim ppidl As Long
-    Dim i As Long
+    Dim I As Long
     s = Space(260)
     Result = SHGetSpecialFolderLocation(0, CSIDL, ppidl)
     If Result = 0 Then
         Result = SHGetPathFromIDList(ppidl, s)
         If Result Then
-            i = InStr(s, Chr$(0))
-            If i > 0 Then s = Left$(s, i - 1)
+            I = InStr(s, Chr$(0))
+            If I > 0 Then s = Left$(s, I - 1)
             s = Trim$(s)
             If Right$(s, 1) <> "\" Then s = s & "\"
             ApiSpecialFolder = s
