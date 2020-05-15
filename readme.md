@@ -15,6 +15,7 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. i
 2. monitoring topic-centric private areas (telegram, discord, slack, fb groups, etc.)
 3. automated [this](https://pastebin.com/raw/irj4Fyd5) with conversational ai (yeah probably won't do this)
 4. web front
+5. admin cmds in telegram groups e.g. twitter black/whitelisting to reduce noise
 
 **greetz**<br/>
 [justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
