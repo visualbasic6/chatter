@@ -8,4 +8,4 @@ the format of targets.txt is
 service:area:apicreds(unnecessary):minutesbetweencrawl
 e.g. reddit:cryptocurrency:n/a:5
 
-populate these files prior to running the .exe or chatter will crash.
+populate these files prior to running the .exe or chatter will fail. it is best to use chatter with a windows server to set it and forget it.
