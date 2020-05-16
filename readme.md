@@ -4,6 +4,9 @@ chatter is a proof of concept osint monitoring telegram bot for windows (server,
 **video (click to watch)**<br/>
 [![Chatter - Internet Monitoring for Windows](https://github.com/visualbasic6/chatter/raw/master/ss.gif)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
 
+**telegram bot reporting**<br/>
+![reporting](https://i.imgur.com/sqF943U.png)
+
 **how to run chatter**<br/>
 download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. it's in \bin
 
