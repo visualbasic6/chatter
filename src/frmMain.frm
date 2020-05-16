@@ -4,7 +4,7 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "chatter beta v2"
+   Caption         =   "chatter beta v2 - email: kevin@envadr.io to purchase custom versions for your organization"
    ClientHeight    =   5805
    ClientLeft      =   45
    ClientTop       =   690
@@ -47,6 +47,7 @@ Begin VB.Form frmMain
       _ExtentY        =   9340
       _Version        =   393216
       Style           =   1
+      Tab             =   1
       TabHeight       =   520
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Consolas"
@@ -59,46 +60,61 @@ Begin VB.Form frmMain
       EndProperty
       TabCaption(0)   =   "status"
       TabPicture(0)   =   "frmMain.frx":048A
-      Tab(0).ControlEnabled=   -1  'True
+      Tab(0).ControlEnabled=   0   'False
       Tab(0).Control(0)=   "LV"
       Tab(0).Control(0).Enabled=   0   'False
       Tab(0).ControlCount=   1
       TabCaption(1)   =   "config"
       TabPicture(1)   =   "frmMain.frx":04A6
-      Tab(1).ControlEnabled=   0   'False
-      Tab(1).Control(0)=   "txtRefresh"
-      Tab(1).Control(1)=   "chkPopulate"
-      Tab(1).Control(2)=   "txtChatID"
-      Tab(1).Control(3)=   "txtAPIKey"
-      Tab(1).Control(4)=   "lstKeywords"
-      Tab(1).Control(5)=   "lstTargets"
-      Tab(1).Control(6)=   "txtSockets"
+      Tab(1).ControlEnabled=   -1  'True
+      Tab(1).Control(0)=   "lblText(0)"
+      Tab(1).Control(0).Enabled=   0   'False
+      Tab(1).Control(1)=   "lblText(1)"
+      Tab(1).Control(1).Enabled=   0   'False
+      Tab(1).Control(2)=   "lblText(2)"
+      Tab(1).Control(2).Enabled=   0   'False
+      Tab(1).Control(3)=   "lblText(3)"
+      Tab(1).Control(3).Enabled=   0   'False
+      Tab(1).Control(4)=   "lblText(4)"
+      Tab(1).Control(4).Enabled=   0   'False
+      Tab(1).Control(5)=   "lblText(9)"
+      Tab(1).Control(5).Enabled=   0   'False
+      Tab(1).Control(6)=   "lblText(10)"
+      Tab(1).Control(6).Enabled=   0   'False
       Tab(1).Control(7)=   "lblText(14)"
-      Tab(1).Control(8)=   "lblText(10)"
-      Tab(1).Control(9)=   "lblText(9)"
-      Tab(1).Control(10)=   "lblText(4)"
-      Tab(1).Control(11)=   "lblText(3)"
-      Tab(1).Control(12)=   "lblText(2)"
-      Tab(1).Control(13)=   "lblText(1)"
-      Tab(1).Control(14)=   "lblText(0)"
+      Tab(1).Control(7).Enabled=   0   'False
+      Tab(1).Control(8)=   "txtSockets"
+      Tab(1).Control(8).Enabled=   0   'False
+      Tab(1).Control(9)=   "lstTargets"
+      Tab(1).Control(9).Enabled=   0   'False
+      Tab(1).Control(10)=   "lstKeywords"
+      Tab(1).Control(10).Enabled=   0   'False
+      Tab(1).Control(11)=   "txtAPIKey"
+      Tab(1).Control(11).Enabled=   0   'False
+      Tab(1).Control(12)=   "txtChatID"
+      Tab(1).Control(12).Enabled=   0   'False
+      Tab(1).Control(13)=   "chkPopulate"
+      Tab(1).Control(13).Enabled=   0   'False
+      Tab(1).Control(14)=   "txtRefresh"
+      Tab(1).Control(14).Enabled=   0   'False
       Tab(1).ControlCount=   15
       TabCaption(2)   =   "logging"
       TabPicture(2)   =   "frmMain.frx":04C2
       Tab(2).ControlEnabled=   0   'False
-      Tab(2).Control(0)=   "txtLog"
-      Tab(2).Control(1)=   "lblCrawlsAttempted"
-      Tab(2).Control(2)=   "lblText(13)"
-      Tab(2).Control(3)=   "lblMatchesDiscovered"
-      Tab(2).Control(4)=   "lblText(12)"
-      Tab(2).Control(5)=   "lblSocketsRefreshed"
-      Tab(2).Control(6)=   "lblText(11)"
-      Tab(2).Control(7)=   "lblText(8)"
-      Tab(2).Control(8)=   "lblKeywords"
-      Tab(2).Control(9)=   "lblText(7)"
-      Tab(2).Control(10)=   "lblTargets"
-      Tab(2).Control(11)=   "lblText(6)"
-      Tab(2).Control(12)=   "lblSockets"
-      Tab(2).Control(13)=   "lblText(5)"
+      Tab(2).Control(0)=   "lblText(5)"
+      Tab(2).Control(1)=   "lblSockets"
+      Tab(2).Control(2)=   "lblText(6)"
+      Tab(2).Control(3)=   "lblTargets"
+      Tab(2).Control(4)=   "lblText(7)"
+      Tab(2).Control(5)=   "lblKeywords"
+      Tab(2).Control(6)=   "lblText(8)"
+      Tab(2).Control(7)=   "lblText(11)"
+      Tab(2).Control(8)=   "lblSocketsRefreshed"
+      Tab(2).Control(9)=   "lblText(12)"
+      Tab(2).Control(10)=   "lblMatchesDiscovered"
+      Tab(2).Control(11)=   "lblText(13)"
+      Tab(2).Control(12)=   "lblCrawlsAttempted"
+      Tab(2).Control(13)=   "txtLog"
       Tab(2).ControlCount=   14
       Begin VB.TextBox txtRefresh 
          BeginProperty Font 
@@ -111,7 +127,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   31
          Text            =   "60"
          Top             =   2450
@@ -129,7 +145,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   255
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   23
          ToolTipText     =   "do this prior to launching a new campaign to prevent flooding. reload chatter when complete."
          Top             =   2800
@@ -146,7 +162,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   22
          Top             =   1860
          Width           =   9495
@@ -162,7 +178,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   20
          Top             =   1260
          Width           =   9495
@@ -196,7 +212,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1620
-         Left            =   -70080
+         Left            =   4920
          TabIndex        =   10
          Top             =   3360
          Width           =   4695
@@ -212,7 +228,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1620
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   7
          Top             =   3360
          Width           =   4695
@@ -229,7 +245,7 @@ Begin VB.Form frmMain
             Strikethrough   =   0   'False
          EndProperty
          Height          =   315
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   4
          Text            =   "10"
          Top             =   660
@@ -237,7 +253,7 @@ Begin VB.Form frmMain
       End
       Begin MSComctlLib.ListView LV 
          Height          =   4695
-         Left            =   120
+         Left            =   -74880
          TabIndex        =   2
          Top             =   480
          Width           =   9495
@@ -274,7 +290,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   14
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   30
          Top             =   2200
          Width           =   4095
@@ -397,7 +413,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   10
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   21
          Top             =   1620
          Width           =   1815
@@ -415,7 +431,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   9
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   19
          Top             =   1020
          Width           =   1815
@@ -556,7 +572,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   4
-         Left            =   -70080
+         Left            =   4920
          TabIndex        =   9
          Top             =   3120
          Width           =   1815
@@ -566,7 +582,7 @@ Begin VB.Form frmMain
          Caption         =   "?"
          Height          =   255
          Index           =   3
-         Left            =   -70440
+         Left            =   4560
          TabIndex        =   8
          Top             =   2520
          Width           =   255
@@ -576,7 +592,7 @@ Begin VB.Form frmMain
          Caption         =   "?"
          Height          =   255
          Index           =   2
-         Left            =   -65640
+         Left            =   9360
          TabIndex        =   6
          Top             =   180
          Width           =   255
@@ -594,7 +610,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   1
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   5
          Top             =   3120
          Width           =   9135
@@ -612,7 +628,7 @@ Begin VB.Form frmMain
          EndProperty
          Height          =   255
          Index           =   0
-         Left            =   -74880
+         Left            =   120
          TabIndex        =   3
          Top             =   420
          Width           =   735
@@ -661,6 +677,9 @@ Begin VB.Form frmMain
    End
    Begin VB.Menu start 
       Caption         =   "start"
+   End
+   Begin VB.Menu purchase 
+      Caption         =   "purchase a custom version of chatter"
    End
 End
 Attribute VB_Name = "frmMain"
@@ -745,6 +764,12 @@ Private Sub Form_Load()
     lblSockets.Caption = iSockets
     lblTargets.Caption = lstTargets.ListCount
     lblKeywords.Caption = lstKeywords.ListCount
+
+End Sub
+
+Private Sub purchase_Click()
+
+    MsgBox "email kevin@envadr.io for quotes", , "chatter customization"
 
 End Sub
 
