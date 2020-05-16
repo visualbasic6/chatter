@@ -10,7 +10,7 @@ ping kevin@envadr.io if you think a custom version of chatter could be of use to
 ![reporting](https://i.imgur.com/3uRhvnx.png)
 
 **how to run chatter**<br/>
-download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.<br/><br/>
+download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 
 1. create your own bot for chatter on telegram with "botfather"<br/>
 2. set the api key in \config\apikey.txt<br/>
