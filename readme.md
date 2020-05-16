@@ -1,5 +1,5 @@
 **description**<br/>
-chatter is a proof of concept osint monitoring telegram bot for windows (server, ideally) that monitors tweet content, reddit submission titles and 4chan post content for specific keywords - as well as phrases in quotation marks. it feeds discovered content to a telegram group of your choosing in near real-time depending on your configuration settings. this is an early beta release with limited features.
+chatter is a proof of concept osint monitoring telegram bot for windows (server, ideally) that monitors tweet content, reddit submission titles and 4chan post content for specific keywords - as well as phrases in quotation marks. it feeds content that is discovered to your telegram group in near real-time depending on your configuration. this is an early beta release with limited features.
 
 ping kevin@envadr.io if you think a custom version of chatter could be of use to your organization.
 
