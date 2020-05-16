@@ -15,7 +15,7 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip. i
 place your telegram bot api key here: \config\apikey.txt
 
 place the numerical chat id of your telegram group here: \config\chatid.txt<br/><br/>
-your chat id can be found with https://core.telegram.org/bots/api#getupdates
+after creating your own bot for chatter with "botfather" you can find your group's chat id with this api request https://core.telegram.org/bots/api#getupdates after you have added the bot to the telegram group with admin privileges.
 
 the other files in \config\ are self-explanatory and structured with examples. keywords are treated as hashtags on twitter, submission titles on reddit and post content on 4chan. you may place phrases in quotes in addition to keywords.
 
