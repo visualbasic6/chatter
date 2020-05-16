@@ -27,9 +27,7 @@ the format of targets.txt is
 service:area:apicreds(unnecessary):minutesbetweencrawl
 e.g. reddit:cryptocurrency:n/a:5
 
-populate these files prior to running the .exe or chatter will fail. it is best to use chatter with a windows server to set it and forget it.
-
-chatter was written in classic vb with an ssl wrapper making external api requests. because of this av may display false positives. you are free to compile from source or run chatter in an enclave - which is always wise to do period.
+populate these files prior to running the .exe or chatter will fail. it is best to use chatter with a windows server to set it and forget it. chatter was written in classic vb with an ssl wrapper making external api requests. this is rare in 2020. because of this av may display false positives. you are free to compile from source or run chatter in an enclave - which *should* be standard practice anyhow.
 
 **compile from source**<br/>
 vb6
