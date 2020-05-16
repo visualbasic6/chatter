@@ -14,7 +14,7 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 
 1. create your own bot for chatter on telegram with "botfather"<br/>
 2. set the api key in \config\apikey.txt<br/>
-3. add your bot to your group<br/>
+3. add your bot to your group and give it admin privileges<br/>
 3. pull your group's chat id with this api request https://core.telegram.org/bots/api#getupdates<br/>
 4. set the chat id in \config\chatid.txt<br/>
 5. run the .exe<br/>
