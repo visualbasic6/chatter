@@ -16,12 +16,12 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.<b
 2. set the api key in \config\apikey.txt<br/>
 3. add your bot to your group<br/>
 3. pull your group's chat id with this api request https://core.telegram.org/bots/api#getupdates<br/>
-4. set the chat id in \config\chatid.txt<br/><br/>
-5. run the .exe
+4. set the chat id in \config\chatid.txt<br/>
+5. run the .exe<br/>
 
 you may need to run cmd.exe as admin and "regsvr32 {file.ocx}" if any launch errors unrelated to absent config files appear. 
 
-the other files in \config\ are self-explanatory and structured with examples.
+the files in \config\ are self-explanatory and come with examples.
 
 the format of targets.txt is
 service:area:apicreds(unnecessary):minutesbetweencrawl
