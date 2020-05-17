@@ -60,7 +60,7 @@ examples<br/>
 `\db\4chan\75749943.txt`<br/>
 `\db\twitter\692151844227911680.txt`<br/>
 
-with 4chan and reddit it only stores post ids and not the thread numbers. to retain content from any of these platforms, at least for now, you would need to update or recode chatter. with twitter you'd have to take something like `\db\twitter\692151844227911680.txt` generate the url via `https://twitter.com/{anything}/status/692151844227911680` and then scrape and database the content of the tweet. additional alterations would be required to associate the tweet with the keyword used to locate it as previously mentioned.
+with twitter you would be able to take something like `\db\twitter\692151844227911680.txt`, generate the url via `https://twitter.com/{anything}/status/692151844227911680` and then scrape and db the content of the tweet with another bot.  alterations to chatter would be required to associate the tweet with the keyword used to locate it.
 
 **greetz**<br/>
 [justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
