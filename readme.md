@@ -45,7 +45,7 @@ vb6
 
 chatter is presently best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. currently you would need to make edits to chatter and perform additional crawling.
 
-the benefit of reporting discoveries to telegram groups is that telegram crawls the urls chatter presents it with and displays relevant text and image data associated with the content.
+the benefit of reporting discoveries to telegram groups is that telegram crawls the urls chatter presents it with and displays relevant text and image previews associated with the content.
 
 the 3 queries chatter makes every N minutes are
 
