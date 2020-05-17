@@ -55,7 +55,7 @@ the 3 queries chatter makes every N minutes are
 
 then it stores unique url identifiers as .txt files as `\db\{platform}\{identifier.txt}` as to ignore them as duplicates in the future.
 
-examples:
+examples<br/>
 `\db\reddit\1xy9k6.txt`<br/>
 `\db\4chan\75749943.txt`<br/>
 `\db\twitter\692151844227911680.txt`<br/>
