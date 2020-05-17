@@ -39,7 +39,7 @@ vb6
 4. web front
 5. admin cmds in telegram groups e.g. twitter black/whitelisting to reduce noise
 
-**deeper dive, local storage, immediate thoughts**<br/>
+**deeper dive, local storage, immediate thoughts may 17 2020**<br/>
 
 <i><b>note</b>: chatter needs to be updated to store full urls somewhere that are associated with their keywords and timestamps - and probably also crawl the urls upon their discovery to fully mirror content. this could/should come in a nearby update.</i>
 
