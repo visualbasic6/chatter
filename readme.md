@@ -41,7 +41,9 @@ vb6
 
 **deeper dive, local storage, immediate thoughts**<br/>
 
-chatter is best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. you would need to perform additional crawling or edits. the benefit of telegram reporting is that telegram crawls urls that chatter discovers and displays image and text previews of the url. this may be changed later.
+chatter is best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. you would need to perform additional crawling or make edits to chatter. the benefit of reporting discoveries to telegram groups is that telegram crawls urls that chatter discovers and displays image and text previews of their urls.
+
+<i>chatter should store full urls somewhere that are associated with keywords and timestamps, if not auto-crawl them upon discovery to fully mirror retrieved content. this could come in a nearby update.</i>
 
 the 3 queries chatter makes every N minutes are
 
