@@ -39,5 +39,24 @@ vb6
 4. web front
 5. admin cmds in telegram groups e.g. twitter black/whitelisting to reduce noise
 
+**deeper dive, local storage, immediate thoughts**<br/>
+
+chatter is best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. you would need to perform additional crawling or edits. the benefit of telegram reporting is that telegram crawls urls that chatter discovers and displays image and text previews of the url. this may be changed later.
+
+the 3 queries chatter makes every N minutes are
+
+https://www.reddit.com/search.compact?q=subreddit%3A{subreddit}+{query}&sort=new&t=all<br/>
+https://find.4chan.org/?q={query}&b={area, e.g. biz, b, etc.}<br/>
+https://twitter.com/search?l=&q={query}&src=typd<br/>
+
+then it stores unique url identifiers as .txt files in \db\{platform}\ as to ignore them as duplicates in the future.
+
+examples:
+\db\reddit\1xy9k6.txt<br/>
+\db\4chan\75749943.txt<br/>
+\db\twitter\692151844227911680.txt<br/>
+
+for 4chan and reddit it only stores the post id and not the thread number, and a subreddit submission associated token without retaining post content. to retain content from any of these 3 platforms you would need to update or recode chatter. with twitter you'd have to take something like \db\twitter\692151844227911680.txt generate the url via https://twitter.com/{anything}/status/692151844227911680 and then scrape and database the content of the tweet. additional alterations would be required to associate the tweet with the keyword used to locate it.
+
 **greetz**<br/>
 [justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
