@@ -4,14 +4,14 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Object = "{BDC217C8-ED16-11CD-956C-0000C04E4C0A}#1.1#0"; "TABCTL32.OCX"
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "chatter beta v2 - email: kevin@envadr.io to purchase custom versions for your organization"
+   Caption         =   "chatter beta v2 - kevin@envadr.io - twitter.com/123456"
    ClientHeight    =   5805
    ClientLeft      =   45
    ClientTop       =   690
    ClientWidth     =   9945
    BeginProperty Font 
-      Name            =   "Arial"
-      Size            =   8.25
+      Name            =   "Consolas"
+      Size            =   9
       Charset         =   0
       Weight          =   400
       Underline       =   0   'False
@@ -51,7 +51,7 @@ Begin VB.Form frmMain
       TabHeight       =   520
       BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
          Name            =   "Consolas"
-         Size            =   8.25
+         Size            =   9
          Charset         =   0
          Weight          =   400
          Underline       =   0   'False
@@ -83,21 +83,23 @@ Begin VB.Form frmMain
       Tab(1).Control(6).Enabled=   0   'False
       Tab(1).Control(7)=   "lblText(14)"
       Tab(1).Control(7).Enabled=   0   'False
-      Tab(1).Control(8)=   "txtSockets"
+      Tab(1).Control(8)=   "lblPopulateDBHelp"
       Tab(1).Control(8).Enabled=   0   'False
-      Tab(1).Control(9)=   "lstTargets"
+      Tab(1).Control(9)=   "txtSockets"
       Tab(1).Control(9).Enabled=   0   'False
-      Tab(1).Control(10)=   "lstKeywords"
+      Tab(1).Control(10)=   "lstTargets"
       Tab(1).Control(10).Enabled=   0   'False
-      Tab(1).Control(11)=   "txtAPIKey"
+      Tab(1).Control(11)=   "lstKeywords"
       Tab(1).Control(11).Enabled=   0   'False
-      Tab(1).Control(12)=   "txtChatID"
+      Tab(1).Control(12)=   "txtAPIKey"
       Tab(1).Control(12).Enabled=   0   'False
-      Tab(1).Control(13)=   "chkPopulate"
+      Tab(1).Control(13)=   "txtChatID"
       Tab(1).Control(13).Enabled=   0   'False
-      Tab(1).Control(14)=   "txtRefresh"
+      Tab(1).Control(14)=   "chkPopulate"
       Tab(1).Control(14).Enabled=   0   'False
-      Tab(1).ControlCount=   15
+      Tab(1).Control(15)=   "txtRefresh"
+      Tab(1).Control(15).Enabled=   0   'False
+      Tab(1).ControlCount=   16
       TabCaption(2)   =   "logging"
       TabPicture(2)   =   "frmMain.frx":04C2
       Tab(2).ControlEnabled=   0   'False
@@ -117,15 +119,6 @@ Begin VB.Form frmMain
       Tab(2).Control(13)=   "txtLog"
       Tab(2).ControlCount=   14
       Begin VB.TextBox txtRefresh 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   315
          Left            =   120
          TabIndex        =   31
@@ -134,33 +127,16 @@ Begin VB.Form frmMain
          Width           =   9495
       End
       Begin VB.CheckBox chkPopulate 
-         Caption         =   "populate database without broadcasting to telegram"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
+         Caption         =   "populate db without broadcasting"
          Height          =   255
          Left            =   120
          TabIndex        =   23
          ToolTipText     =   "do this prior to launching a new campaign to prevent flooding. reload chatter when complete."
          Top             =   2800
-         Width           =   9375
+         Value           =   1  'Checked
+         Width           =   3735
       End
       Begin VB.TextBox txtChatID 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   315
          Left            =   120
          TabIndex        =   22
@@ -168,15 +144,6 @@ Begin VB.Form frmMain
          Width           =   9495
       End
       Begin VB.TextBox txtAPIKey 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   315
          Left            =   120
          TabIndex        =   20
@@ -184,15 +151,6 @@ Begin VB.Form frmMain
          Width           =   9495
       End
       Begin VB.TextBox txtLog 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   3015
          Left            =   -74880
          MultiLine       =   -1  'True
@@ -202,32 +160,14 @@ Begin VB.Form frmMain
          Width           =   9495
       End
       Begin VB.ListBox lstKeywords 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   1620
+         Height          =   1740
          Left            =   4920
          TabIndex        =   10
          Top             =   3360
          Width           =   4695
       End
       Begin VB.ListBox lstTargets 
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         Height          =   1620
+         Height          =   1740
          Left            =   120
          TabIndex        =   7
          Top             =   3360
@@ -235,15 +175,6 @@ Begin VB.Form frmMain
       End
       Begin VB.TextBox txtSockets 
          Enabled         =   0   'False
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   315
          Left            =   120
          TabIndex        =   4
@@ -277,17 +208,25 @@ Begin VB.Form frmMain
          EndProperty
          NumItems        =   0
       End
-      Begin VB.Label lblText 
-         Caption         =   "force socket refresh every x minutes"
+      Begin VB.Label lblPopulateDBHelp 
+         Caption         =   "?"
          BeginProperty Font 
             Name            =   "Consolas"
-            Size            =   8.25
+            Size            =   9
             Charset         =   0
-            Weight          =   400
+            Weight          =   700
             Underline       =   0   'False
             Italic          =   0   'False
             Strikethrough   =   0   'False
          EndProperty
+         Height          =   255
+         Left            =   4680
+         TabIndex        =   32
+         Top             =   2800
+         Width           =   135
+      End
+      Begin VB.Label lblText 
+         Caption         =   "force socket refresh every x minutes"
          Height          =   255
          Index           =   14
          Left            =   120
@@ -297,15 +236,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblCrawlsAttempted 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -73320
          TabIndex        =   29
@@ -314,15 +244,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblText 
          Caption         =   "crawls attempted"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   13
          Left            =   -73320
@@ -332,15 +253,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblMatchesDiscovered 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -73320
          TabIndex        =   27
@@ -349,15 +261,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblText 
          Caption         =   "matches discovered"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   12
          Left            =   -73320
@@ -367,86 +270,41 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblSocketsRefreshed 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -73320
          TabIndex        =   25
-         Top             =   720
+         Top             =   650
          Width           =   1575
       End
       Begin VB.Label lblText 
          Caption         =   "sockets refreshed"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   11
          Left            =   -73320
          TabIndex        =   24
-         Top             =   480
+         Top             =   420
          Width           =   1815
       End
       Begin VB.Label lblText 
          Caption         =   "\config\chatid.txt"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   10
          Left            =   120
          TabIndex        =   21
          Top             =   1620
-         Width           =   1815
+         Width           =   2175
       End
       Begin VB.Label lblText 
          Caption         =   "\config\apikey.txt"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   9
          Left            =   120
          TabIndex        =   19
          Top             =   1020
-         Width           =   1815
+         Width           =   2295
       End
       Begin VB.Label lblText 
          Caption         =   "log"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   8
          Left            =   -74880
@@ -456,15 +314,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblKeywords 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -74880
          TabIndex        =   16
@@ -473,15 +322,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblText 
          Caption         =   "keywords"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   7
          Left            =   -74880
@@ -491,15 +331,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblTargets 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -74880
          TabIndex        =   14
@@ -508,15 +339,6 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblText 
          Caption         =   "targets"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   6
          Left            =   -74880
@@ -526,60 +348,42 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblSockets 
          Caption         =   "0"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Left            =   -74880
          TabIndex        =   12
-         Top             =   720
+         Top             =   650
          Width           =   855
       End
       Begin VB.Label lblText 
          Caption         =   "sockets"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   5
          Left            =   -74880
          TabIndex        =   11
-         Top             =   480
+         Top             =   420
          Width           =   735
       End
       Begin VB.Label lblText 
          Caption         =   "\config\keywords.txt"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   4
          Left            =   4920
          TabIndex        =   9
          Top             =   3120
-         Width           =   1815
+         Width           =   2535
       End
       Begin VB.Label lblText 
          Alignment       =   1  'Right Justify
          Caption         =   "?"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   255
          Index           =   3
          Left            =   4560
@@ -590,6 +394,15 @@ Begin VB.Form frmMain
       Begin VB.Label lblText 
          Alignment       =   1  'Right Justify
          Caption         =   "?"
+         BeginProperty Font 
+            Name            =   "Arial"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          Height          =   255
          Index           =   2
          Left            =   9360
@@ -599,33 +412,15 @@ Begin VB.Form frmMain
       End
       Begin VB.Label lblText 
          Caption         =   "\config\targets.txt"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   1
          Left            =   120
          TabIndex        =   5
          Top             =   3120
-         Width           =   9135
+         Width           =   4335
       End
       Begin VB.Label lblText 
          Caption         =   "sockets"
-         BeginProperty Font 
-            Name            =   "Consolas"
-            Size            =   8.25
-            Charset         =   0
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
          Height          =   255
          Index           =   0
          Left            =   120
@@ -678,8 +473,8 @@ Begin VB.Form frmMain
    Begin VB.Menu start 
       Caption         =   "start"
    End
-   Begin VB.Menu purchase 
-      Caption         =   "purchase a custom version of chatter"
+   Begin VB.Menu help 
+      Caption         =   "?"
    End
 End
 Attribute VB_Name = "frmMain"
@@ -767,9 +562,15 @@ Private Sub Form_Load()
 
 End Sub
 
-Private Sub purchase_Click()
+Private Sub help_Click()
 
-    MsgBox "email kevin@envadr.io for quotes", , "chatter customization"
+    MsgBox "for chatter support and custom software contact kevin@envadr.io"
+
+End Sub
+
+Private Sub lblPopulateDBHelp_Click()
+
+    MsgBox "it is recommended to do this several times before broadcasting to telegram. this is particularly the case with twitter. timestamping may be added in the future. eventually, only recent material is reported - but it may take a few days for all old content to fully db.", vbInformation
 
 End Sub
 
