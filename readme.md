@@ -43,7 +43,9 @@ vb6
 
 <i><b>note</b>: chatter needs to be updated to store full urls somewhere that are associated with their keywords and timestamps - and probably also crawl the urls upon their discovery to fully mirror content. this could/should come in a nearby update.</i>
 
-chatter is presently best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. you would need to perform additional crawling or make edits to chatter. the benefit of reporting discoveries to telegram groups is that telegram crawls urls that chatter discovers and displays image and text previews of their urls.
+chatter is presently best reserved for something like casually sitting in a telegram group and running collaborative intel; e.g. investors overseeing news related to specific markets. it does not store post content locally. currently you would need to make edits to chatter and perform additional crawling.
+
+the benefit of reporting discoveries to telegram groups is that telegram crawls the urls chatter presents it with and displays relevant text and image data associated with the content.
 
 the 3 queries chatter makes every N minutes are
 
@@ -58,7 +60,7 @@ examples:
 \db\4chan\75749943.txt<br/>
 \db\twitter\692151844227911680.txt<br/>
 
-for 4chan and reddit it only stores the post id and not the thread number, and a subreddit submission associated token without retaining post content. to retain content from any of these 3 platforms you would need to update or recode chatter. with twitter you'd have to take something like \db\twitter\692151844227911680.txt generate the url via https://twitter.com/{anything}/status/692151844227911680 and then scrape and database the content of the tweet. additional alterations would be required to associate the tweet with the keyword used to locate it.
+with 4chan and reddit it only stores post ids and not the thread numbers. to retain content from any of these platforms, at least for now, you would need to update or recode chatter. with twitter you'd have to take something like \db\twitter\692151844227911680.txt generate the url via https://twitter.com/{anything}/status/692151844227911680 and then scrape and database the content of the tweet. additional alterations would be required to associate the tweet with the keyword used to locate it as previously mentioned.
 
 **greetz**<br/>
 [justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
