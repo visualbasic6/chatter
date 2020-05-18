@@ -53,7 +53,7 @@ the 3 queries chatter makes every N minutes are
 `https://find.4chan.org/?q={query}&b={area, e.g. biz, b, etc.}`<br/>
 `https://twitter.com/search?l=&q={query}&src=typd`<br/>
 
-then it stores unique url identifiers as .txt files as `\db\{platform}\{identifier.txt}` as to ignore them as duplicates in the future.
+then it stores unique url identifiers as .txt files as `\db\{platform}\{identifier}.txt` as to ignore them as duplicates in the future.
 
 examples<br/>
 `\db\reddit\1xy9k6.txt`<br/>
