@@ -4,10 +4,10 @@ chatter is a proof of concept osint monitoring telegram bot for windows (server,
 ping kevin@envadr.io if you think a custom version of chatter or sophisticated pen testing could be of use to your organization.
 
 **video (click to watch)**<br/>
-[![Chatter - Internet Monitoring for Windows](https://i.imgur.com/1jrvZo0.png)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
+[![Chatter - Internet Monitoring for Windows](https://i.imgur.com/RXNyGM6.png)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
 
 **telegram bot reporting**<br/>
-![reporting](https://i.imgur.com/RXNyGM6.png)
+![reporting](https://i.imgur.com/3uRhvnx.png)
 
 **how to run chatter**<br/>
 download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
