@@ -27,7 +27,7 @@ the format of targets.txt is
 `service:area:apicreds(unnecessary):minutesbetweencrawl`
 e.g. `reddit:cryptocurrency:n/a:5`
 
-populate these files prior to running the .exe or chatter will fail. it is best to use chatter with a windows server to set it and forget it. chatter was written in classic vb with an ssl wrapper making external api requests. this is rare in 2020. because of this av may display false positives. you are free to compile from source or run chatter in an enclave - which *should* be standard practice for any software containing code you are unable to personally review and compile. it is recommended to abstain from broadcasting to telegram several times while populating the db with content to ignore. this is particularly useful for twitter. eventually only recent material is intercepted - though it may take a awhile for old content associated with your keywords and phrases to be databased and ignored.
+populate these files prior to running the .exe or chatter will fail. it is best to use chatter with a windows server to set it and forget it. chatter was written in classic vb with an ssl wrapper making external api requests. this is rare in 2020. because of this av may display false positives. you are free to compile from source or run chatter in an enclave - which *should* be standard practice for any software containing code you are unable to personally review and compile. it is recommended to abstain from broadcasting to telegram several times while populating the db with content to ignore. this is particularly useful for twitter. eventually only recent material is intercepted - though it may take awhile for old content associated with your keywords and phrases to be databased and ignored.
 
 **compile from source**<br/>
 vb6
