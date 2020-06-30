@@ -51,7 +51,7 @@ the 3 queries chatter makes every N minutes are
 
 `https://www.reddit.com/search.compact?q=subreddit%3A{subreddit}+{query}&sort=new&t=all`<br/>
 `https://find.4chan.org/?q={query}&b={area, e.g. biz, b, etc.}`<br/>
-`https://twitter.com/search?l=&q={query}&src=typd`<br/>
+`https://api.twitter.com/2/search/adaptive.json?&q={query}`<br/>
 
 then it stores unique url identifiers as .txt files as `\db\{platform}\{identifier}.txt` as to ignore them as duplicates in the future.
 
