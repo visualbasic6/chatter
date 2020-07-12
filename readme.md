@@ -14,8 +14,9 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 "chat": {
             "id": -100156734232,
 ```
-5. set the chat id in `\bin\config\chatid.txt`<br/>
-6. run the .exe<br/>
+5. set the chat id in `\bin\config\chatid.txt`
+6. populate `\bin\config\targets.txt` and `\bin\config\keywords.txt` accordingly. don't worry - examples are already provided in these text files.<br/>
+7. run the .exe<br/> 
 
 **video (click to watch)**<br/>
 [![Chatter - Internet Monitoring for Windows](https://i.imgur.com/RXNyGM6.png)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
