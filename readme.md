@@ -13,11 +13,15 @@ ping kevin@envadr.io if you think a custom version of chatter or sophisticated p
 download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 
 1. create your own bot for chatter on telegram with "botfather"<br/>
-2. set the api key in `\config\apikey.txt`<br/>
+2. set the api key in `\bin\config\apikey.txt`<br/>
 3. add your bot to your group and give it admin privileges<br/>
-3. pull your group's chat id with this api request https://core.telegram.org/bots/api#getupdates<br/>
-4. set the chat id in `\config\chatid.txt`<br/>
-5. run the .exe<br/>
+4. pull your telegram group's chat id by adding the bot "RawDataBot" to your group. kick it after you've received your chat id. your chat id will be displaeyd in RawDataBot's message like this:<br>
+```
+"chat": {
+            "id": -100156734232,
+```
+5. set the chat id in `\bin\config\chatid.txt`<br/>
+6. run the .exe<br/>
 
 you may need to run cmd.exe as admin and "regsvr32 {file.ocx}" if any launch errors unrelated to absent config files appear. 
 
