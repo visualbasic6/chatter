@@ -3,12 +3,6 @@ chatter is a proof of concept osint monitoring telegram bot for windows (server,
 
 ping kevin@envadr.io if you think a custom version of chatter or sophisticated pen testing could be of use to your organization.
 
-**video (click to watch)**<br/>
-[![Chatter - Internet Monitoring for Windows](https://i.imgur.com/RXNyGM6.png)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
-
-**telegram bot reporting**<br/>
-![reporting](https://i.imgur.com/3uRhvnx.png)
-
 **how to run chatter**<br/>
 download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 
@@ -22,6 +16,12 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 ```
 5. set the chat id in `\bin\config\chatid.txt`<br/>
 6. run the .exe<br/>
+
+**video (click to watch)**<br/>
+[![Chatter - Internet Monitoring for Windows](https://i.imgur.com/RXNyGM6.png)](https://www.youtube.com/watch?v=zhQ8ztWAmlk "Chatter - Internet Monitoring for Windows")
+
+**telegram bot reporting**<br/>
+![reporting](https://i.imgur.com/3uRhvnx.png)
 
 you may need to run cmd.exe as admin and "regsvr32 {file.ocx}" if any launch errors unrelated to absent config files appear. 
 
