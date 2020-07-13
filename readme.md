@@ -9,13 +9,13 @@ download and unzip https://github.com/visualbasic6/chatter/archive/master.zip.
 1. create your own bot for chatter on telegram with "botfather"<br/>
 2. set your bot's api key in `\bin\config\apikey.txt`<br/>
 3. add your bot to your group and give it admin privileges<br/>
-4. pull your telegram group's chat id by adding the bot "RawDataBot" to your group. kick it after you've received your chat id. your chat id will be displayed in RawDataBot's message like this:<br>
+4. pull your telegram group's chat id by adding the bot "RawDataBot" to your group. kick it after you've received your chat id. your chat id will be displayed in RawDataBot's message like this:<br/>
 ```
 "chat": {
             "id": -100156734232,
 ```
 where `-100156734232` is your telegram group's chat id.<br/> 
-5. set the chat id in `\bin\config\chatid.txt`
+5. set the chat id in `\bin\config\chatid.txt`<br/>
 6. populate `\bin\config\targets.txt` and `\bin\config\keywords.txt` accordingly. don't worry - examples are already provided in these text files.<br/>
 7. run the .exe<br/> 
 
