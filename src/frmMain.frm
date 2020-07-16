@@ -4,11 +4,11 @@ Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "mscomctl.ocx"
 Object = "{5C4592BE-A01B-11D3-AFAF-BF3F431B043C}#2.0#0"; "toolbar.ocx"
 Begin VB.Form frmMain 
    BorderStyle     =   1  'Fixed Single
-   Caption         =   "chatter beta v2.2"
-   ClientHeight    =   5835
+   Caption         =   "chatter beta v2.3"
+   ClientHeight    =   5865
    ClientLeft      =   45
    ClientTop       =   390
-   ClientWidth     =   9720
+   ClientWidth     =   9735
    BeginProperty Font 
       Name            =   "Consolas"
       Size            =   9
@@ -21,8 +21,8 @@ Begin VB.Form frmMain
    Icon            =   "frmMain.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
-   ScaleHeight     =   5835
-   ScaleWidth      =   9720
+   ScaleHeight     =   5865
+   ScaleWidth      =   9735
    StartUpPosition =   1  'CenterOwner
    Begin VB.Frame frmLogging 
       BorderStyle     =   0  'None
@@ -275,7 +275,6 @@ Begin VB.Form frmMain
          TabIndex        =   5
          ToolTipText     =   "do this prior to launching a new campaign to prevent flooding. reload chatter when complete."
          Top             =   2505
-         Value           =   1  'Checked
          Width           =   3735
       End
       Begin VB.TextBox txtRefresh 
@@ -486,16 +485,16 @@ Begin VB.Form frmMain
       Height          =   330
       Left            =   0
       TabIndex        =   0
-      Top             =   5505
-      Width           =   9720
-      _ExtentX        =   17145
+      Top             =   5535
+      Width           =   9735
+      _ExtentX        =   17171
       _ExtentY        =   582
       _Version        =   393216
       BeginProperty Panels {8E3867A5-8586-11D1-B16A-00C0F0283628} 
          NumPanels       =   1
          BeginProperty Panel1 {8E3867AB-8586-11D1-B16A-00C0F0283628} 
             AutoSize        =   1
-            Object.Width           =   17092
+            Object.Width           =   17119
             Text            =   "status: loading"
             TextSave        =   "status: loading"
          EndProperty
@@ -644,28 +643,28 @@ Private Sub Form_Load()
     txtChatID.Text = LoadText(App.Path & "\config\chatid.txt")
     iSockets = lstTargets.ListCount
     txtSockets.Text = iSockets
-    Dim i As Integer
-    For i = 1 To iSockets
+    Dim I As Integer
+    For I = 1 To iSockets
         Call listScroll(lstTargets)
-        sService(i) = Split(lstTargets.Text, ":")(0)
-        sArea(i) = Split(lstTargets.Text, ":")(1)
-        sAPIKey(i) = Split(lstTargets.Text, ":")(2)
-        iPause(i) = Split(lstTargets.Text, ":")(3)
-        Load wSocket(i)
-        Load tmrPoll(i)
-        LV.ListItems.Add(, , "") = i
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sService(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sArea(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sAPIKey(i)
-        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , iPause(i)
+        sService(I) = Split(lstTargets.Text, ":")(0)
+        sArea(I) = Split(lstTargets.Text, ":")(1)
+        sAPIKey(I) = Split(lstTargets.Text, ":")(2)
+        iPause(I) = Split(lstTargets.Text, ":")(3)
+        Load wSocket(I)
+        Load tmrPoll(I)
+        LV.ListItems.Add(, , "") = I
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sService(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sArea(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , sAPIKey(I)
+        LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , iPause(I)
         LV.ListItems.Item(LV.ListItems.Count).ListSubItems.Add , , "idle"
     Next
-    For i = 1 To lstKeywords.ListCount
+    For I = 1 To lstKeywords.ListCount
         Call listScroll(lstKeywords)
-        sKeywords(i) = lstKeywords.Text
+        sKeywords(I) = lstKeywords.Text
     Next
-    For i = 1 To 500
-        Load wSend(i)
+    For I = 1 To 500
+        Load wSend(I)
     Next
     lblSockets.Caption = iSockets
     lblTargets.Caption = lstTargets.ListCount
@@ -674,11 +673,13 @@ Private Sub Form_Load()
     wAuth.Request.Headers.Add "authorization", "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
     wAuth.Post
 End Sub
+
 Private Sub wAuth_Done(ByVal ErrorCode As Long, ByVal ErrorText As String)
     sTwitterAuth = wAuth.Response.Body
     sTwitterAuth = Split(sTwitterAuth, ":")(1): sTwitterAuth = Replace(sTwitterAuth, """", ""): sTwitterAuth = Replace(sTwitterAuth, "}", "")
-    toolBar.Button(1).Enabled = True
-    statusBar.Panels(1).Text = "status: idle"
+    If toolBar.Button(1).Enabled = False Then
+        toolBar.Button(1).Enabled = True
+    End If
 End Sub
 Private Sub lblPopulateDBHelp_Click()
     MsgBox "it is recommended to do this several times before broadcasting to telegram. this is particularly the case with twitter. timestamping may be added in the future. eventually, only recent material is reported - but it may take a few days for all old content to fully db.", vbInformation
@@ -689,15 +690,15 @@ Private Sub start_Click()
     txtAPIKey.Enabled = False
     txtChatID.Enabled = False
     txtRefresh.Enabled = False
-    Dim i As Integer
-    For i = 1 To iSockets
-        tmrPoll(i).Enabled = True
+    Dim I As Integer
+    For I = 1 To iSockets
+        tmrPoll(I).Enabled = True
     Next
     tmrRefreshSockets.Enabled = True
     statusBar.Panels(1).Text = "status: running"
 End Sub
 Private Sub tmrPoll_Timer(Index As Integer)
-    Dim i As Integer
+    Dim I As Integer
     If tmrPoll(Index).Interval = 1 Then
         LV.ListItems(Index).SubItems(5) = "searching " & sArea(Index) & " on " & sService(Index)
         tmrPoll(Index).Interval = 2
@@ -761,6 +762,11 @@ Private Sub tmrPoll_Timer(Index As Integer)
                     statusBar.Panels(1).Text = "status: pausing for " & iPause(Index) & " minutes."
                     LV.ListItems(Index).SubItems(5) = "pausing for " & iPause(Index) & " minutes."
                     txtLog.Text = txtLog.Text & "pausing socket #" & Index & " for " & iPause(Index) & " minutes." & vbNewLine
+                    wAuth.Request.Headers.RemoveAll
+                    wAuth.Request.Cookies.RemoveAll
+                    wAuth.URL = "https://api.twitter.com/1.1/guest/activate.json"
+                    wAuth.Request.Headers.Add "authorization", "Bearer AAAAAAAAAAAAAAAAAAAAANRILgAAAAAAnNwIzUejRCOuH5E6I8xnZz4puTs%3D1Zv7ttfk8LF81IUq16cHjhLTvJu4FA33AGWWjCpTnA"
+                    wAuth.Post
                     iCurrentKeyword(Index) = 0
                     iPauseLoop(Index) = 0
                     tmrPoll(Index).Interval = 60000
@@ -803,9 +809,9 @@ Private Sub toolBar_ButtonClick(ByVal ButtonIndex As Integer, ByVal ButtonKey As
         txtAPIKey.Enabled = False
         txtChatID.Enabled = False
         txtRefresh.Enabled = False
-        Dim i As Integer
-        For i = 1 To iSockets
-            tmrPoll(i).Enabled = True
+        Dim I As Integer
+        For I = 1 To iSockets
+            tmrPoll(I).Enabled = True
         Next
         tmrRefreshSockets.Enabled = True
         statusBar.Panels(1).Text = "status: running"
@@ -837,7 +843,7 @@ End Sub
 Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorText As String)
     On Error Resume Next
     lblCrawlsAttempted.Caption = lblCrawlsAttempted.Caption + 1
-    Dim sResponseBody As String, i As Integer, x As String, Y As String, sMessage As String, fileName As String, _
+    Dim sResponseBody As String, I As Integer, X As String, Y As String, sMessage As String, fileName As String, _
     regEx As RegExp, myMatches As MatchCollection, myMatch As Match
     sResponseBody = wSocket(Index).Response.Body
     txtLog.Text = txtLog.Text & "searching " & sService(Index) & "/" & sArea(Index) & " for " & sKeywords(iCurrentKeyword(Index)) & vbNewLine
@@ -847,12 +853,12 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
         sResponseBody = Replace(sResponseBody, "&gt;", "")
         sResponseBody = Replace(sResponseBody, "<span class=""quote""", "")
         sResponseBody = Replace(sResponseBody, "<br>", " ")
-        For i = 1 To 1000
+        For I = 1 To 1000
             If InStr(sResponseBody, "<span class=""postnum desktop"">") Then
-                x = midParse(sResponseBody, "<span class=""postnum desktop"">", "</blockquote>")
-                If Len(x) > 1 Then
-                    If InStr(x, Replace(sKeywords(iCurrentKeyword(Index)), """", "")) Then
-                        fileName = midParse(x, "thread/", "#")
+                X = midParse(sResponseBody, "<span class=""postnum desktop"">", "</blockquote>")
+                If Len(X) > 1 Then
+                    If InStr(X, Replace(sKeywords(iCurrentKeyword(Index)), """", "")) Then
+                        fileName = midParse(X, "thread/", "#")
                         If FileExists(App.Path & "\db\4chan\" & fileName & ".txt") Then
                             LV.ListItems(Index).SubItems(5) = "ignoring duplicate"
                             txtLog.Text = txtLog.Text & "ignoring " & sService(Index) & " duplicate: " & fileName & vbNewLine
@@ -863,9 +869,9 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
                             lblMatchesDiscovered.Caption = lblMatchesDiscovered.Caption + 1
                             LV.ListItems(Index).SubItems(5) = "discovered +1 ''" & sKeywords(iCurrentKeyword(Index)) & _
                             "'' in " & sArea(Index)
-                            sMessage = midParse(x, "<a href=""//", """") & " / " & Split(x, """>")(2)
+                            sMessage = midParse(X, "<a href=""//", """") & " / " & Split(X, """>")(2)
                             sMessage = sKeywords(iCurrentKeyword(Index)) & "%0D%0A%0D%0A" & "https://" & _
-                            midParse(x, "<a href=""//", """")
+                            midParse(X, "<a href=""//", """")
                             txtLog.Text = txtLog.Text & Replace(sMessage, "%0D%0A%0D%0A", " ") & vbNewLine
                             If chkPopulate = 0 Then
                                 wSend(Index).URL = "https://api.telegram.org/" & txtAPIKey.Text & "/sendMessage?parse_mode=html&chat_id=" & txtChatID.Text & "&text=%F0%9F%91%81%EF%B8%8F <b>chatter</b> found " & sMessage
@@ -874,21 +880,21 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
                         End If
                     End If
                 Else
-                    i = 1000
+                    I = 1000
                     Exit Sub
                 End If
-                sResponseBody = Replace(sResponseBody, "<span class=""postnum desktop"">" & x & "</blockquote>", vbNull)
+                sResponseBody = Replace(sResponseBody, "<span class=""postnum desktop"">" & X & "</blockquote>", vbNull)
             End If
         Next
     End If
     If sService(Index) = "reddit" Then
         sResponseBody = LCase(sResponseBody)
-        x = sResponseBody
+        X = sResponseBody
         Set regEx = New RegExp
         regEx.IgnoreCase = False
         regEx.Global = True
         regEx.Pattern = "mailto(.*?)%0a"" >"
-        Set myMatches = regEx.Execute(x)
+        Set myMatches = regEx.Execute(X)
         For Each myMatch In myMatches
             Y = myMatch.Value
             sMessage = sKeywords(iCurrentKeyword(Index)) & "%0D%0A%0D%0A" & "https://reddit.com/r/" & _
@@ -913,12 +919,12 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
     End If
     If sService(Index) = "twitter" Then
         sResponseBody = LCase(sResponseBody)
-        x = sResponseBody
+        X = sResponseBody
         Set regEx = New RegExp
         regEx.IgnoreCase = False
         regEx.Global = True
         regEx.Pattern = "{""tweet"":{(.*?)"","
-        Set myMatches = regEx.Execute(x)
+        Set myMatches = regEx.Execute(X)
         For Each myMatch In myMatches
             Y = myMatch.Value
             Y = Replace(Y, "{""tweet"":{""id"":", ""): Y = Replace(Y, ",", ""): Y = Replace(Y, """", "")
@@ -949,19 +955,19 @@ Private Sub wSocket_Done(Index As Integer, ByVal ErrorCode As Long, ByVal ErrorT
 End Sub
 Private Sub tmrRefreshSockets_Timer()
     On Error Resume Next
-    Dim i As Integer
+    Dim I As Integer
     iRefreshSockets = iRefreshSockets + 1
     If iRefreshSockets >= txtRefresh.Text + 1 Then
         iRefreshSockets = 0
-        For i = 1 To iSockets
-            wSocket(i).Disconnect
-            tmrPoll(i).Enabled = False
-            tmrPoll(i).Interval = 1
-            tmrPoll(i).Enabled = True
+        For I = 1 To iSockets
+            wSocket(I).Disconnect
+            tmrPoll(I).Enabled = False
+            tmrPoll(I).Interval = 1
+            tmrPoll(I).Enabled = True
             lblSocketsRefreshed.Caption = lblSocketsRefreshed.Caption + 1
         Next
-        For i = 1 To 500
-            wSend(i).Disconnect
+        For I = 1 To 500
+            wSend(I).Disconnect
         Next
     End If
 End Sub
@@ -969,14 +975,14 @@ Public Function ApiSpecialFolder(ByVal CSIDL As Long) As String
     Dim s As String
     Dim Result As Long
     Dim ppidl As Long
-    Dim i As Long
+    Dim I As Long
     s = Space(260)
     Result = SHGetSpecialFolderLocation(0, CSIDL, ppidl)
     If Result = 0 Then
         Result = SHGetPathFromIDList(ppidl, s)
         If Result Then
-            i = InStr(s, Chr$(0))
-            If i > 0 Then s = Left$(s, i - 1)
+            I = InStr(s, Chr$(0))
+            If I > 0 Then s = Left$(s, I - 1)
             s = Trim$(s)
             If Right$(s, 1) <> "\" Then s = s & "\"
             ApiSpecialFolder = s
