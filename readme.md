@@ -76,3 +76,4 @@ with twitter you would be able to take something like `\db\twitter\6921518442279
 
 **greetz**<br/>
 [justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
+[stang](https://github.com/meany) for the keks and lulz
