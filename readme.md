@@ -1,5 +1,5 @@
 **october 6, 2021**<br/>
-this may soon no longer be abandonware. as for now it is very unstable. i'd like to recode it from scratch.
+this may soon no longer be abandonware. **as for now it is very unstable**. i'd like to recode it from scratch.
 
 **description**<br/>
 chatter is a proof of concept osint monitoring telegram bot for windows (server, ideally) that monitors tweet content, reddit submission titles and 4chan post content for specific keywords - as well as phrases in quotation marks. it feeds content that is discovered to your telegram group in near real-time depending on your configuration. this is an early beta release with limited features.
