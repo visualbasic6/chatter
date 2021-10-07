@@ -1,9 +1,6 @@
 **october 6, 2021**<br/>
 this may soon no longer be abandonware. as for now it is very unstable. i'd like to recode it from scratch.
 
-**notice**<br/>
-twitter changed and telegram has implemented new rate limiting for bots sending rapid back to back group messages. i need to add a queue to release the responses slower as they're captured. as for now chatter is solid for niche interests. a fundamental issue is that reporting being limited to telegram decreases the usability of chatter. i'll fix these items at some point. some good news is that i've discovered a method to monitor google alerts in a way that doesn't appear to return a captcha. an endgame chatter would also monitor social media areas and chat rooms.
-
 **description**<br/>
 chatter is a proof of concept osint monitoring telegram bot for windows (server, ideally) that monitors tweet content, reddit submission titles and 4chan post content for specific keywords - as well as phrases in quotation marks. it feeds content that is discovered to your telegram group in near real-time depending on your configuration. this is an early beta release with limited features.
 
