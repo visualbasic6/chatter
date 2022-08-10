@@ -72,5 +72,5 @@ examples<br/>
 with twitter you would be able to take something like `\db\twitter\692151844227911680.txt`, generate the url via `https://twitter.com/{anything}/status/692151844227911680` and then scrape and db the content of the tweet with another bot.  alterations to chatter would be required to associate the tweet with the keyword used to locate it.
 
 **greetz**<br/>
-[justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers
+[justinakapaste.com](https://justinakapaste.com) and all of my elderly aol hackers  
 [stang](https://github.com/meany) for the keks and lulz
