@@ -1,3 +1,6 @@
+**april 9, 2023**
+abandonware - sorry - busy elsewhere. will recode from scratch in a xplatform language in exchange for tons of money.
+
 **october 6, 2021**<br/>
 this may soon no longer be abandonware. **as for now it is very unstable**. i'd like to recode it from scratch.
 
